@@ -14,7 +14,8 @@
             // https://localhost:44300/prod/Product
             // https://localhost:44300/prod/Product/Second
             "UpstreamPathTemplate": "/prod/{everything}",
-            "UpstreamHttpMethod": [ "Get" ]
+            "UpstreamHttpMethod": [ "Get" ],
+            "SwaggerKey": "product"
         },
         {
             "DownstreamPathTemplate": "/api/{everything}",
@@ -28,6 +29,29 @@
             "UpstreamPathTemplate": "/cart/{everything}",
             "UpstreamHttpMethod": [ "Get" ],
             "SwaggerKey": "cart"
+        }
+    ],
+
+    "SwaggerEndPoints": [
+        {
+            "Key": "product",
+            "Config": [
+                {
+                    "Name": "product API",
+                    "Version": "v1",
+                    "Url": "https://localhost:5001/swagger/v1/swagger.json"
+                }
+            ]
+        },
+        {
+            "Key": "cart",
+            "Config": [
+                {
+                    "Name": "cart API",
+                    "Version": "v1",
+                    "Url": "https://localhost:6001/swagger/v1/swagger.json"
+                }
+            ]
         }
     ],
     "GlobalConfiguration": {
