@@ -12,14 +12,15 @@ namespace ExampleOcelot
 
             // Add services to the container.
 
-            IConfiguration configuration = new ConfigurationBuilder()
-                .AddJsonFile("ocelotexample.json").Build();
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //Ocelot
+            IConfiguration configuration = new ConfigurationBuilder()
+             .AddJsonFile("ocelotexample.json").Build();
+            builder.Services.AddSwaggerForOcelot(configuration);
             builder.Services.AddOcelot(configuration);
 
             var app = builder.Build();
@@ -28,8 +29,9 @@ namespace ExampleOcelot
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-               
-                app.UseSwaggerUI();
+                //Ocelot
+                app.UseSwaggerForOcelotUI();
+                //app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
