@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPICart", "WebAPICart\WebAPICart.csproj", "{9C066B30-DC9D-426A-AF35-5580D2876035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIProduct", "WebAPIProduct\WebAPIProduct.csproj", "{D327492D-147C-47EC-85AE-D78EA9919E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleOcelot", "ExampleOcelot\ExampleOcelot.csproj", "{2F116DE3-7112-425B-A6EA-128E250A13FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C066B30-DC9D-426A-AF35-5580D2876035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C066B30-DC9D-426A-AF35-5580D2876035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C066B30-DC9D-426A-AF35-5580D2876035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C066B30-DC9D-426A-AF35-5580D2876035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D327492D-147C-47EC-85AE-D78EA9919E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D327492D-147C-47EC-85AE-D78EA9919E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D327492D-147C-47EC-85AE-D78EA9919E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D327492D-147C-47EC-85AE-D78EA9919E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

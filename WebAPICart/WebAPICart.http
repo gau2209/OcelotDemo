@@ -1,0 +1,6 @@
+@WebAPICart_HostAddress = http://localhost:5252
+
+GET {{WebAPICart_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
