@@ -1,6 +1,7 @@
 {
     "Routes": [
         {
+            // Này là đường dẫn chứa các method trong ProductController
             "DownstreamPathTemplate": "/api/{everything}",
             "DownstreamScheme": "https",
             "DownstreamHostAndPorts": [
@@ -9,8 +10,24 @@
                     "Port": 5001
                 }
             ],
+            //Đường dẫn này là đường dẫn mà client gọi đến để gọi đến API Gateway và từ đó API Gateway sẽ chuyển tiếp request đến API Service
+            // https://localhost:44300/prod/Product
+            // https://localhost:44300/prod/Product/Second
             "UpstreamPathTemplate": "/prod/{everything}",
             "UpstreamHttpMethod": [ "Get" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6001
+                }
+            ],
+            "UpstreamPathTemplate": "/cart/{everything}",
+            "UpstreamHttpMethod": [ "Get" ],
+            "SwaggerKey": "cart"
         }
     ],
     "GlobalConfiguration": {
