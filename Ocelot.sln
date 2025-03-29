@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIProduct", "WebAPIProd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleOcelot", "ExampleOcelot\ExampleOcelot.csproj", "{2F116DE3-7112-425B-A6EA-128E250A13FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authen", "Authen\Authen.csproj", "{61858A1F-3924-4548-ACE1-34CEEDDAEC3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Private", "Private\Private.csproj", "{B6564B94-EC1E-4BA9-BDE2-F85603B1B058}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F116DE3-7112-425B-A6EA-128E250A13FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61858A1F-3924-4548-ACE1-34CEEDDAEC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61858A1F-3924-4548-ACE1-34CEEDDAEC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61858A1F-3924-4548-ACE1-34CEEDDAEC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61858A1F-3924-4548-ACE1-34CEEDDAEC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6564B94-EC1E-4BA9-BDE2-F85603B1B058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6564B94-EC1E-4BA9-BDE2-F85603B1B058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6564B94-EC1E-4BA9-BDE2-F85603B1B058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6564B94-EC1E-4BA9-BDE2-F85603B1B058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

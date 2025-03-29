@@ -1,5 +1,37 @@
 {
     "Routes": [
+        // PRIVATE SERVICE (Pass authen mới được truy cập)
+        {
+            "DownstreamPathTemplate": "/api/Private/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 8001
+                }
+            ],
+            "UpstreamPathTemplate": "/private/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "SwaggerKey": "private"
+        },
+        // AUTHEN SERVICE
+        {
+            "DownstreamPathTemplate": "/api/Authen/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7001
+                }
+            ],
+            "UpstreamPathTemplate": "/authen/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "SwaggerKey": "authen"
+        },
         {
             // Này là đường dẫn chứa các method trong ProductController
             "DownstreamPathTemplate": "/api/{everything}",
@@ -28,7 +60,23 @@
             ],
             "UpstreamPathTemplate": "/cart/{everything}",
             "UpstreamHttpMethod": [ "Get" ],
+
+            //"RateLimitOptions": {
+            //    "ClientWhitelist": [], // các client có IP này trong whitelist sẽ không phải bị limit request
+            //    "EnableRateLimiting": true, // bật limit 
+            //    // Tham số này xác định thời lượng mà giới hạn được áp dụng, chẳng hạn như 1S (giây), 5m (phút), 1h (giờ) và 1D (ngày). Nếu bạn đạt đến giới hạn chính xác của các yêu cầu, phần dư sẽ xảy ra ngay lập tức và các thời gian bắt đầu. Bạn phải đợi thời hạn Deringtimespan vượt qua trước khi đưa ra yêu cầu khác. Nếu bạn vượt quá số lượng yêu cầu trong khoảng thời gian nhiều hơn các giấy phép giới hạn, hạn ngạch sẽ xuất hiện trong phản hồi, kèm theo httpstatuscode.
+            //    "Period": "5s",
+            //    "PeriodTimespan": 15, // Tham số này cho biết thời gian tính bằng giây sau đó lần thử lại được cho phép. Trong khoảng thời gian này, hạn ngạch sẽ xuất hiện trong phản hồi, kèm theo một httpstatuscode 429. Khách hàng nên tham khảo tiêu đề thử lại sau khi xác định thời gian của các yêu cầu tiếp theo.
+            //    "Limit": 100 // Tham số này xác định giới hạn trên của các yêu cầu Một máy khách được phép thực hiện trong một khoảng thời gian (Period) được chỉ định.
+            //    // có nghĩa là client chỉ được request (limit) lần trong (period) chỉ định, nếu như vượt quá số lần limit sẽ được đưa vào hàng chờ và đợi khoảng thời gian (PeriodTimespan) thì mới có thể request tiếp
+            //},
+            "QoSOptions": {
+                "ExceptionsAllowedBeforeBreaking": 2, // số lần request thất bại trước khi bắt đầu chuyển sang trạng thái lỗi
+                "DurationOfBreak": 9000, // thời gian phải đợi sau khi chuyển sang trạng thái lỗi
+                "TimeoutValue": 5000 // thời gian timeout
+            },
             "SwaggerKey": "cart"
+
         }
     ],
 

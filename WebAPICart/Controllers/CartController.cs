@@ -15,15 +15,16 @@ namespace WebAPICart.Controllers
         }
 
         [HttpGet]
-        public string First()
+        public async Task<IActionResult> First()
         {
-            return "Cart service - First";
+            await Task.Delay(6000);
+            return Ok("Cart service - First");
         }
 
         [HttpGet("Second")]
         public string Second()
         {
-            return "Cart service - Second";
+            throw new Exception("hehe");
         }
 
     }

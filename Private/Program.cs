@@ -1,13 +1,9 @@
 
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
-using Ocelot.Cache.CacheManager;
-using Ocelot.Provider.Polly;
 
-namespace ExampleOcelot
+namespace Private
 {
     public class Program
     {
@@ -16,7 +12,7 @@ namespace ExampleOcelot
             var builder = WebApplication.CreateBuilder(args);
 
             #region Authen
-            var key = Encoding.ASCII.GetBytes("This is my test for private key for authentication");
+            var key = Encoding.ASCII.GetBytes("This is my test private key");
             builder.Services.AddAuthentication(option =>
             {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -44,28 +40,21 @@ namespace ExampleOcelot
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //Ocelot
-            IConfiguration configuration = new ConfigurationBuilder()
-             .AddJsonFile("ocelotexample.json").Build();
-
-            builder.Services.AddOcelot(configuration).AddPolly();
-
-            builder.Services.AddSwaggerForOcelot(configuration);
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                //Ocelot
-                app.UseSwaggerForOcelotUI();
-                //app.UseSwaggerUI();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
+
             app.UseAuthentication();
+
             app.UseAuthorization();
-            app.UseOcelot().Wait();
+
 
             app.MapControllers();
 
